@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    overflow-x: hidden;
+    background-color: #1B4965;
+  }
+  
+  h1, h2, h3, .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer components {
+  /* Botón de navegación (volver) */
+  .btn-volver {
+    @apply px-4 py-2 bg-white/10 border border-white/30 rounded-md text-white transition-all duration-300 hover:bg-white/20;
+  }
+  .btn-volver:hover {
+    border-color: #C9A03D;
+  }
+  
+  /* Círculos del menú principal */
+  .circulo-modulo {
+    @apply w-[180px] h-[180px] md:w-[220px] md:h-[220px] rounded-full flex flex-col items-center justify-center text-white text-lg md:text-xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl;
+  }
+  
+  /* Tarjetas de contenido patrimonial */
+  .tarjeta-patrimonio {
+    @apply bg-[#F5E6D3]/95 backdrop-blur-sm rounded-xl p-5 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer;
+  }
+  
+  /* Contenedores de módulos */
+  .modulo-container {
+    @apply min-h-screen bg-cover bg-center bg-fixed p-4 md:p-5;
+  }
+  
+  .modulo-contenido {
+    @apply max-w-6xl mx-auto bg-white/95 rounded-2xl shadow-2xl p-4 md:p-8;
+  }
+  
+  .modulo-header {
+    @apply flex flex-wrap items-center justify-between gap-4 pb-5 mb-6 md:mb-8;
+    border-bottom: 2px solid rgba(74, 74, 74, 0.15);
+  }
+  
+  .modulo-header h1 {
+    @apply text-2xl md:text-4xl font-bold text-[#1B4965];
+  }
+  
+  /* Pestañas de historia */
+  .tab-historia {
+    @apply px-6 py-3 rounded-lg text-lg font-semibold transition-all;
+  }
+  
+  .tab-historia.active {
+    background-color: #C9A03D;
+    @apply text-white;
+  }
+  
+  .tab-historia:not(.active) {
+    background-color: rgba(74, 74, 74, 0.1);
+    color: #4A4A4A;
+  }
+  .tab-historia:not(.active):hover {
+    background-color: rgba(74, 74, 74, 0.2);
+  }
+  
+  /* Línea de tiempo */
+  .linea-tiempo-container {
+    @apply relative py-8 md:py-12;
+  }
+  
+  .hito-marcador {
+    @apply w-5 h-5 md:w-6 md:h-6 rounded-full border-4 border-white shadow-md transition-all duration-300 cursor-pointer hover:scale-150;
+  }
+  
+  /* Tooltips personalizados */
+  .tooltip-hito {
+    @apply absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-56 p-3 bg-white rounded-xl shadow-2xl opacity-0 invisible transition-all duration-300 z-20;
+    border-left: 4px solid #C9A03D;
+  }
+  
+  .group:hover .tooltip-hito {
+    @apply opacity-100 visible;
+  }
+  
+  /* Colores para categorías de hitos */
+  .bg-categoria-fundacion {
+    background-color: #C9A03D;
+  }
+  .bg-categoria-patrimonio {
+    background-color: #2D6A4F;
+  }
+  .bg-categoria-cultura {
+    background-color: #B85C38;
+  }
+  .bg-categoria-naturaleza {
+    background-color: #1B4965;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .text-shadow-light {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+}
