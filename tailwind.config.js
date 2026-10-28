@@ -1,53 +1,58 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx}",
+    "./src/presentation/**/*.{js,ts,jsx,tsx}",
+    "./src/core/**/*.{js,ts,jsx,tsx}",
+  ],
+  safelist: [
+    'animate-shimmer',
+    'animate-gold-shimmer',
+    'bg-clip-text',
+    'text-transparent',
   ],
   theme: {
     extend: {
       colors: {
-        // Paleta patrimonial de Baracoa
-        'oro': '#C9A03D',
-        'terracota': '#B85C38',
-        'verde-yara': '#2D6A4F',
-        'azul-caribe': '#1B4965',
-        'beige-colonial': '#F5E6D3',
-        'gris-piedra': '#4A4A4A',
-        'marfil': '#FAF9F6',
-        'madera-antigua': '#6B3E1B',
-        
-        // Colores adicionales para categorías
-        'categoria-fundacion': '#C9A03D',
-        'categoria-patrimonio': '#2D6A4F',
-        'categoria-cultura': '#B85C38',
-        'categoria-naturaleza': '#1B4965',
+        primary: {
+          50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd',
+          400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8',
+          800: '#1e40af', 900: '#1e3a8a',
+        },
+        secondary: {
+          50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1',
+          400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#334155',
+          800: '#1e293b', 900: '#0f172a',
+        },
+        success: { 50: '#f0fdf4', 500: '#22c55e', 600: '#16a34a', 700: '#15803d' },
+        warning: { 50: '#fffbeb', 500: '#f59e0b', 600: '#d97706', 700: '#b45309' },
+        danger:  { 50: '#fef2f2', 500: '#ef4444', 600: '#dc2626', 700: '#b91c1c' },
+        info:    { 50: '#eff6ff', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8' },
+        gacha: {
+          bg: "#0b0f1a",
+          surface: "#131829",
+          surfaceAlt: "#1b2138",
+          border: "#2a3350",
+          gold: "#f5c451",
+          goldBright: "#ffd97a",
+          cyan: "#4dd0e1",
+          purple: "#a78bfa",
+          danger: "#ef4444",
+        },
+        rarity: {
+          "1": "#9ca3af",
+          "2": "#22c55e",
+          "3": "#3b82f6",
+          "4": "#a855f7",
+          "5": "#f5c451",
+        },
       },
       fontFamily: {
-        'serif': ['Georgia', 'Cambria', 'Times New Roman', 'serif'],
-        'sans': ['Inter', 'Segoe UI', 'system-ui', 'sans-serif'],
-        'display': ['Playfair Display', 'Georgia', 'serif'],
-      },
-      backgroundImage: {
-        'papel-viejo': "url('/images/papel-viejo-bg.jpg')",
-        'piedra-caliza': "url('/images/piedra-caliza-bg.jpg')",
-      },
-      animation: {
-        'fade-in': 'fadeIn 0.5s ease-in-out',
-        'slide-up': 'slideUp 0.3s ease-out',
-        'pulse-slow': 'pulse 3s infinite',
-      },
-      keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
-        slideUp: {
-          '0%': { transform: 'translateY(20px)', opacity: '0' },
-          '100%': { transform: 'translateY(0)', opacity: '1' },
-        },
+        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
     },
   },
   plugins: [],
-}
+};
